@@ -3,8 +3,8 @@ class Dotenvguard < Formula
 
   desc "Catch missing .env variables before they crash production"
   homepage "https://github.com/hamzaplojovic/dotenvguard"
-  url "https://files.pythonhosted.org/packages/7d/6f/881a2cfc184646d547cf01ffd3d400ae98546dc03c48bbe89868e07f1420/dotenvguard-0.1.1.tar.gz"
-  sha256 "870a2abeca7080edb73e5604f0ef57c54dfc90476b4f16849cf30657de7b501c"
+  url "https://files.pythonhosted.org/packages/ce/ab/e2aea1a699d9b63b89bf30815f3c7180fd36b0d24b74d879864ca64f016f/dotenvguard-0.2.0.tar.gz"
+  sha256 "bdde1f310fb4c1e701090c78d9c0ec25152f00037d675241a632274e1bed3da1"
   license "MIT"
 
   depends_on "python@3.12"

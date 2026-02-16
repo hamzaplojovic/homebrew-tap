@@ -1,0 +1,29 @@
+name: Test Formulas
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Test formulas
+        run: |
+          for formula in Formula/*.rb; do
+            name=$(basename "$formula" .rb)
+            echo "==> Auditing $name..."
+            brew audit --formula "$formula" || true
+            echo "==> Installing $name..."
+            brew install --formula "$formula"
+            echo "==> Testing $name..."
+            brew test --formula "$formula"
+          done

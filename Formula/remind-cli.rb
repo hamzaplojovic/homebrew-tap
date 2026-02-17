@@ -3,9 +3,9 @@ class RemindCli < Formula
 
   desc "AI-powered CLI reminder engine with desktop notifications and Claude Code integration"
   homepage "https://github.com/hamzaplojovic/remind"
-  url "https://files.pythonhosted.org/packages/source/r/remind-cli/remind_cli-1.3.0.tar.gz"
-  sha256 "28ef56542fa924e9c65f88d21118998413c151377a7655f05913a3dc2166acea"
-  version "1.3.0"
+  url "https://files.pythonhosted.org/packages/source/r/remind-cli/remind_cli-1.3.1.tar.gz"
+  sha256 "b015eeca592b4d235649631dd99c5d3a2a9dd0e8647a4c7771fb12fbfc137025"
+  version "1.3.1"
   license "MIT"
 
   depends_on "python@3.12"

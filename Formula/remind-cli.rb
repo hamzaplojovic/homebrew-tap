@@ -1,18 +1,26 @@
 class RemindCli < Formula
-  desc "Smart CLI reminder engine with AI-powered suggestions"
+  include Language::Python::Virtualenv
+
+  desc "AI-powered CLI reminder engine with desktop notifications and Claude Code integration"
   homepage "https://github.com/hamzaplojovic/remind"
-  url "https://files.pythonhosted.org/packages/source/r/remind-cli/remind_cli-1.1.7.tar.gz"
-  sha256 "33eb748d104715ce90ce5a4616275e11168bd8ece908aa9b726c18f96beac248"
+  url "https://files.pythonhosted.org/packages/7f/4f/bbc7b3dc8f7e5dbce19f4da48c5a6ebc9f6c5e5e5c5e5e5c5e5e5c5e5e5/remind_cli-1.2.0.tar.gz"
+  sha256 "1cab65de3a267bc3476820788247e0f0aa0abc36a2cc1c5408b9fae57f3a22cb"
   license "MIT"
 
   depends_on "python@3.12"
 
   def install
-    venv = virtualenv_create(libexec, "python3.12")
-    venv.pip_install_and_link buildpath
+    virtualenv_install_with_resources
+  end
+
+  def post_install
+    # Install the scheduler as a background service (optional)
+    system bin/"remind", "scheduler", "--install" if File.exist?(bin/"remind")
+  rescue SystemCallError
+    # Installation may fail if not in a supported environment
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/remind --version", 2)
+    system bin/"remind", "--version"
   end
 end

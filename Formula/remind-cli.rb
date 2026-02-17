@@ -5,6 +5,7 @@ class RemindCli < Formula
   homepage "https://github.com/hamzaplojovic/remind"
   url "https://files.pythonhosted.org/packages/source/r/remind-cli/remind_cli-1.3.0.tar.gz"
   sha256 "28ef56542fa924e9c65f88d21118998413c151377a7655f05913a3dc2166acea"
+  version "1.3.0"
   license "MIT"
 
   depends_on "python@3.12"
